@@ -1,3 +1,3 @@
-from server1 import *
+from server import *
 
 initiate_server()
