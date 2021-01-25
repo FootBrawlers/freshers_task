@@ -16,4 +16,5 @@ def colourModifier(col):
         img[:,:,2] = 0
 
     cv.imshow("The modified Image",img)
-    cv.waitKey(100)
+    cv.waitKey(0)
+    cv.destroyAllWindows()
