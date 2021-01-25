@@ -3,7 +3,7 @@ def colourModifier(col):
     img = cv.imread('sample_pics/3.jpg')
 
     cv.imshow("the image",img)
-    cv.waitKey(100)
+    cv.waitKey(0)
 
     if col == 'red' :
         img[:,:,1] = 0
