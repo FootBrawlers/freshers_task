@@ -1,20 +1,23 @@
 import cv2 as cv
-def colourModifier(col):
-    img = cv.imread('sample_pics/3.jpg')
+import numpy as np
+def colourModifier(picture_location,col):
+    img = cv.imread(picture_location)
+    img = cv.resize(img,(600,600))
+    hsv_img = cv.cvtColor(img,cv.COLOR_BGR2HSV)
 
-    cv.imshow("the image",img)
-    cv.waitKey(0)
-
-    if col == 'red' :
-        img[:,:,1] = 0
-        img[:,:,0] = 0
-    elif col == 'blue' :
-        img[:,:,1] = 0
-        img[:,:,2] = 0
+    if col == 'blue' :
+        low = np.array([99, 35, 0])
+        high = np.array([125, 255, 255])
+    elif col == 'red' :
+        low = np.array([0, 44, 0])
+        high = np.array([5, 255, 255])
     elif col == 'green' :
-        img[:,:,0] = 0
-        img[:,:,2] = 0
+        low = np.array([51, 50, 0])
+        high= np.array([73, 255, 255])
 
-    cv.imshow("The modified Image",img)
+    mask = cv.inRange(hsv_img, low, high)
+    final = cv.bitwise_and(img, img, mask=mask)
+    cv.imshow("The orginal img",img)
+    cv.imshow("The new Image",final)
     cv.waitKey(0)
     cv.destroyAllWindows()
