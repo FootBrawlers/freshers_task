@@ -12,7 +12,8 @@ while True:
     clientsocket, address = s.accept()
     print(f"Connection from {address} has been established")
     clientsocket.send(bytes("Welcome to the server, \nHappy to see you here...", 'utf-8'))
-    color = 'Red'
+    color = input("Enter the Color:")
+    color = color.capitalize()
     clientsocket.send(bytes(color, 'utf-8'))
     break
 clientsocket.close()
