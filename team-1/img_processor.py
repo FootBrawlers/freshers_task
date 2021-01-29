@@ -1,6 +1,7 @@
 import cv2 as cv
 import numpy as np
-def colourModifier(picture_location,col):
+
+def colourModifier(col,picture_location = "Sample_pics/6.jpg"):
     img = cv.imread(picture_location)
     img = cv.resize(img,(600,600))
     hsv_img = cv.cvtColor(img,cv.COLOR_BGR2HSV)

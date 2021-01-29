@@ -19,7 +19,8 @@ def initiate_server():
             msg = msg.decode("utf-8")
             if msg in [ "red", "green" , "blue" ] :
                 print(f"\n{msg.capitalize()} has been entered.")
-                colourModifier(msg)
+                for i in range(1,10):
+                    colourModifier(msg,f"Sample_pics/{i}.jpg")
             else: print("invalid colour..!")
         clientsocket.close()
         break
