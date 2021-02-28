@@ -21,6 +21,9 @@ def initiate_server():
                 print(f"\n{msg.capitalize()} has been entered.")
                 for i in range(1,10):
                     colourModifier(msg,f"Sample_pics/{i}.jpg")
+                # if you want to see the process in live using webcam
+                # comment out the lines 22 & 23 and uncomment line 26
+                    # live_colourModifier(msg)
             else: print("invalid colour..!")
         clientsocket.close()
         break
